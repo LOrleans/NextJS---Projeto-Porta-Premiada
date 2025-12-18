@@ -1,6 +1,7 @@
 import PortaModel from '../model/PortaModel'
 import styles from '../styles/Porta.module.css'
 import { Interface } from 'readline'
+import Presente from './Presente';
 
 interface PortaProps {
   value: PortaModel;
@@ -17,7 +18,7 @@ export default function Porta(props: PortaProps){
     props.onChange(porta.abrir())
   }
 
-  function renderizarPorta(){
+  function renderizarPortas(){
     return (
       <div className={styles.porta}>
         <div className={styles.numero}>{porta.numero}</div>
@@ -29,7 +30,7 @@ export default function Porta(props: PortaProps){
   return (
     <div className={styles.area} onClick={alternarSelecao}>
       <div className={`${styles.estrutura} ${selecionada}`}>
-        {porta.aberta ? false : renderizarPorta()}
+        {porta.fechada ? renderizarPortas() : porta.temPresente ? <Presente /> : false }
       </div>
       <div className={styles.chao}></div>
     </div>
