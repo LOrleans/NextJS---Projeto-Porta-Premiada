@@ -27,4 +27,9 @@
   height: 50px;
   width: 50px;
   margin: 5px;
+  background-color: #7B7B7B;
+}
+
+.btn:hover {
+  cursor: pointer;
 }
